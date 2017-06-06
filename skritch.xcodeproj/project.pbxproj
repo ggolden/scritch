@@ -12,6 +12,7 @@
 		00E8DB801EE6E16D00CA232F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00E8DB7E1EE6E16D00CA232F /* Main.storyboard */; };
 		00E8DB821EE6E16D00CA232F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00E8DB811EE6E16D00CA232F /* Assets.xcassets */; };
 		00E8DB851EE6E16D00CA232F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00E8DB831EE6E16D00CA232F /* LaunchScreen.storyboard */; };
+		00E8DB8D1EE6E97700CA232F /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E8DB8C1EE6E97700CA232F /* SheetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		00E8DB811EE6E16D00CA232F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00E8DB841EE6E16D00CA232F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00E8DB861EE6E16D00CA232F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00E8DB8C1EE6E97700CA232F /* SheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				00E8DB7A1EE6E16D00CA232F /* AppDelegate.swift */,
 				00E8DB7C1EE6E16D00CA232F /* ViewController.swift */,
 				00E8DB7E1EE6E16D00CA232F /* Main.storyboard */,
+				00E8DB8C1EE6E97700CA232F /* SheetView.swift */,
 				00E8DB811EE6E16D00CA232F /* Assets.xcassets */,
 				00E8DB831EE6E16D00CA232F /* LaunchScreen.storyboard */,
 				00E8DB861EE6E16D00CA232F /* Info.plist */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E8DB7D1EE6E16D00CA232F /* ViewController.swift in Sources */,
+				00E8DB8D1EE6E97700CA232F /* SheetView.swift in Sources */,
 				00E8DB7B1EE6E16D00CA232F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
