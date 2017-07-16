@@ -12,16 +12,30 @@ import UIKit
 
 class SheetView : UIView
 {
-	var points: [CGPoint] = []
+	var segments: [Segment] = []
+
+	var width: Float = 0
+	let colors = [UIColor.white, UIColor.blue, UIColor.cyan, UIColor.red, UIColor.green, UIColor.lightGray, UIColor.magenta, UIColor.orange, UIColor.purple, UIColor.yellow]
+	var colorsIndex = 0
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
 	{
 		guard
 			let touch = touches.first
-			else
+		else
 		{
 			return;
 		}
+		
+		// start a new segment
+		segments.append(Segment())
+		
+		// temp
+		width += 0.25
+		segments.last?.width = width
+		segments.last?.color = colors[colorsIndex]
+		colorsIndex = (colorsIndex+1) % colors.count
+		print("\(segments.last!.color) \(segments.last!.width)")
 		
 		let touchLocationInView = touch.location(in: self)
 		
@@ -33,7 +47,7 @@ class SheetView : UIView
 	{
 		guard
 			let touch = touches.first
-			else
+		else
 		{
 			return;
 		}
@@ -48,7 +62,7 @@ class SheetView : UIView
 	{
 		guard
 			let touch = touches.first
-			else
+		else
 		{
 			return;
 		}
@@ -62,29 +76,51 @@ class SheetView : UIView
 	override func draw(_ rect: CGRect)
 	{
 		guard
-			let context = UIGraphicsGetCurrentContext(),
-			let first = points.first
-			else
+			let context = UIGraphicsGetCurrentContext()
+		else
 		{
 			return
 		}
 		
-		context.move(to: first)
-		for point in points
+		for segment in segments
 		{
-			context.addLine(to: point)
+			if let first = segment.points.first
+			{
+				context.move(to: first)
+				for point in segment.points
+				{
+					context.addLine(to: point)
+				}
+				
+				context.setLineCap(.round)
+				context.setLineWidth(CGFloat(segment.width))
+				
+				context.setStrokeColor(segment.color.cgColor)
+				context.setBlendMode(.normal)
+				
+				context.strokePath()
+			}
 		}
-		
-		context.setLineCap(.round)
-		context.setLineWidth(1.0)
-		context.setStrokeColor(red: 1, green: 1, blue: 1, alpha: 1)
-		context.setBlendMode(.normal)
-		
-		context.strokePath()
 	}
 	
+	// add a point to the last segment
 	func addPoint(_ point: CGPoint)
 	{
-		points.append(point)
+		guard
+			let seg = segments.last
+		else {
+			return
+		}
+		
+		seg.points.append(point)
+	}
+	
+	func clear()
+	{
+		segments = []
+		width = 0;
+		colorsIndex = 0;
+		
+		setNeedsDisplay()
 	}
 }

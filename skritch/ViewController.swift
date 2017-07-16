@@ -24,6 +24,6 @@ class ViewController: UIViewController {
 	}
 
 	@IBAction func clearSheet(_ sender: UIButton) {
-		print("clear")
+		sheet.clear()
 	}
 }
